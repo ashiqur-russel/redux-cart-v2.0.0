@@ -6,7 +6,7 @@ import {
   REMOVE_PRODUCT,
 } from "../actionTypes/actionTypes";
 
-const initialState = {
+export const initialState = {
   cart: [],
   products: [],
 };

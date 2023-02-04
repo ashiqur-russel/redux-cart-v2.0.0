@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import ProductCard from "../../components/ProductCard";
+import { toggleBrand } from "../../redux/actions/filterActions";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -12,6 +14,8 @@ const Home = () => {
       });
   }, []);
 
+  const dispatch = useDispatch();
+
   const activeClass = "text-white  bg-indigo-500 border-white";
 
   return (
@@ -22,10 +26,16 @@ const Home = () => {
         >
           In Stock
         </button>
-        <button className={`border px-3 py-2 rounded-full font-semibold`}>
+        <button
+          className={`border px-3 py-2 rounded-full font-semibold`}
+          onClick={() => dispatch(toggleBrand("amd"))}
+        >
           AMD
         </button>
-        <button className={`border px-3 py-2 rounded-full font-semibold`}>
+        <button
+          className={`border px-3 py-2 rounded-full font-semibold`}
+          onClick={() => dispatch(toggleBrand("intel"))}
+        >
           Intel
         </button>
       </div>
